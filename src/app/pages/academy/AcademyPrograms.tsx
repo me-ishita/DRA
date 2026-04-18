@@ -135,15 +135,15 @@ export function AcademyPrograms() {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section className="py-20 bg-gradient-to-b from-white to-slate-100 relative">
-        <div className="container mx-auto px-6">
+      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-white to-slate-100 relative">
+        <div className="container mx-auto px-4 sm:px-6">
 
           {/* Section Heading */}
-          <div className="mb-12 text-center">
-            <h2 className="logo-shine inline-block text-4xl md:text-5xl font-black tracking-wide uppercase leading-tight">
+          <div className="mb-8 sm:mb-12 text-center">
+            <h2 className="logo-shine inline-block text-3xl sm:text-4xl md:text-5xl font-black tracking-wide uppercase leading-tight">
               Elite Programme
             </h2>
-            <p className="text-slate-800 text-lg">
+            <p className="text-slate-800 text-base sm:text-lg mt-2">
               Newly launched flagship program from Digital Risk Academy
             </p>
           </div>
@@ -153,7 +153,7 @@ export function AcademyPrograms() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative rounded-2xl overflow-hidden group min-h-[400px] md:min-h-[480px]"
+            className="relative rounded-2xl overflow-hidden group min-h-[440px] sm:min-h-[400px] md:min-h-[480px]"
           >
             {/* Background Image */}
             <div className="absolute inset-0">
@@ -166,44 +166,44 @@ export function AcademyPrograms() {
             </div>
 
             {/* Content */}
-            <div className="relative z-10 p-8 md:p-14 text-white">
+            <div className="relative z-10 p-6 sm:p-8 md:p-14 text-white">
 
               {/* Badge */}
-              <span className="inline-block mb-4 px-4 py-1 bg-orange-500/20 text-orange-400 text-xs font-semibold rounded-full border border-orange-500/30">
+              <span className="inline-block mb-3 sm:mb-4 px-3 sm:px-4 py-1 bg-orange-500/20 text-orange-400 text-[11px] sm:text-xs font-semibold rounded-full border border-orange-500/30">
                 New Launch • Investment Banking
               </span>
 
               {/* Title */}
-              <h2 className="text-3xl md:text-5xl font-bold mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 sm:mb-4">
                 Investment Banking Programme
               </h2>
 
               {/* Description */}
-              <p className="text-lg text-slate-300 max-w-3xl mb-6">
+              <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mb-5 sm:mb-6">
                 A 4-week live, high-intensity programme led by professionals working in top UK investment banks across digital risk, cyber risk, and financial services.
               </p>
 
 
 
               {/* Highlights */}
-                <div className="grid md:grid-cols-1 gap-y-4 gap-x-6">
+                <div className="grid md:grid-cols-1 gap-y-3 sm:gap-y-4 gap-x-6">
 
                   <div className="flex items-center gap-3">
-                    <Users className="w-5 h-5 text-orange-400" />
+                    <Users className="w-5 h-5 text-orange-400 shrink-0" />
                     <span className="text-sm md:text-base text-slate-100">
                       For students & early-career professionals
                     </span>
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <Landmark className="w-5 h-5 text-orange-400" />
+                    <Landmark className="w-5 h-5 text-orange-400 shrink-0" />
                     <span className="text-sm md:text-base text-slate-100">
                       Real-world banking scenarios
                     </span>
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <Briefcase className="w-5 h-5 text-orange-400" />
+                    <Briefcase className="w-5 h-5 text-orange-400 shrink-0" />
                     <span className="text-sm md:text-base text-slate-100">
                       Career guidance & mentorship
                     </span>
@@ -214,7 +214,7 @@ export function AcademyPrograms() {
               {/* CTA */}
               <Link
                 to="/programs/investment-banking"
-                className="inline-flex items-center px-4 py-3 mt-5 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg font-semibold hover:shadow-lg hover:shadow-orange-500/40 transition"
+                className="inline-flex items-center min-h-[48px] px-5 py-3 mt-5 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg font-semibold hover:shadow-lg hover:shadow-orange-500/40 active:scale-[0.99] transition"
               >
                 View Details →
               </Link>
@@ -225,19 +225,20 @@ export function AcademyPrograms() {
       </section>
 
       {/* Filter Section */}
-      <section className="py-8 bg-slate-900/50 border-b border-slate-800 sticky top-20 z-40 backdrop-blur-lg">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="flex items-center space-x-2">
-              <Filter className="w-5 h-5 text-slate-400" />
-              <span className="text-slate-400">Filter by category:</span>
+      <section className="py-4 sm:py-6 md:py-8 bg-slate-900/50 border-b border-slate-800 sticky top-16 sm:top-20 z-40 backdrop-blur-lg">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 md:gap-4">
+            <div className="flex items-center gap-2 shrink-0">
+              <Filter className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400" />
+              <span className="text-sm sm:text-base text-slate-400">Filter by category:</span>
             </div>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex gap-2 overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap scrollbar-none">
               {categories.map((category) => (
                 <button
                   key={category}
+                  type="button"
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-lg font-medium transition-all ${selectedCategory === category
+                  className={`shrink-0 min-h-[40px] px-4 py-2 rounded-lg text-sm font-medium transition-all active:scale-[0.98] ${selectedCategory === category
                     ? "bg-orange-500 text-white"
                     : "bg-slate-800 text-slate-300 hover:bg-slate-700"
                     }`}
@@ -251,10 +252,10 @@ export function AcademyPrograms() {
       </section>
 
       {/* Programs Grid */}
-      <section className="py-16 bg-gradient-to-b from-slate-950 to-slate-900">
-        <div className="container mx-auto px-6">
+      <section className="py-12 sm:py-16 bg-gradient-to-b from-slate-950 to-slate-900">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8"
             variants={staggerContainer}
             initial="initial"
             animate="animate"
@@ -265,29 +266,29 @@ export function AcademyPrograms() {
           </motion.div>
 
           {filteredPrograms.length === 0 && (
-            <div className="text-center py-16">
-              <p className="text-slate-400 text-lg">No programs found in this category.</p>
+            <div className="text-center py-12 sm:py-16">
+              <p className="text-slate-400 text-base sm:text-lg">No programs found in this category.</p>
             </div>
           )}
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-slate-900/50">
-        <div className="container mx-auto px-6">
+      <section className="py-12 sm:py-16 bg-slate-900/50">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div
-            className="max-w-3xl mx-auto text-center bg-gradient-to-r from-orange-500/10 to-blue-500/10 border border-orange-500/20 rounded-2xl p-12"
+            className="max-w-3xl mx-auto text-center bg-gradient-to-r from-orange-500/10 to-blue-500/10 border border-orange-500/20 rounded-2xl p-6 sm:p-10 md:p-12"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold mb-4">Need Help Choosing?</h2>
-            <p className="text-slate-300 mb-6">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Need Help Choosing?</h2>
+            <p className="text-slate-300 text-sm sm:text-base mb-5 sm:mb-6">
               Our advisors can help you select the right program for your goals and experience level.
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center space-x-2 px-8 py-4 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600 transition-all"
+              className="inline-flex items-center gap-2 min-h-[52px] px-6 sm:px-8 py-3.5 sm:py-4 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600 active:scale-[0.99] transition-all"
             >
               <span>Talk to an Advisor</span>
               <ArrowRight className="w-5 h-5" />
@@ -304,14 +305,14 @@ function ProgramCard({ program }: any) {
     <motion.div variants={fadeInUp}>
       <Link
         to={`/programs/${program.id}`}
-        className="block group h-full bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl overflow-hidden hover:border-orange-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-orange-500/10"
+        className="block group h-full bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl overflow-hidden hover:border-orange-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-orange-500/10 hover:-translate-y-0.5 active:scale-[0.99]"
       >
-        <div className="p-6">
-          <div className="flex items-center justify-between mb-4">
-            <span className="px-3 py-1 bg-orange-500/10 text-orange-400 text-xs font-semibold rounded-full">
+        <div className="p-5 sm:p-6">
+          <div className="flex items-center justify-between gap-2 mb-3 sm:mb-4">
+            <span className="px-3 py-1 bg-orange-500/10 text-orange-400 text-[11px] sm:text-xs font-semibold rounded-full">
               {program.category}
             </span>
-            <span className={`px-3 py-1 text-xs font-semibold rounded-full ${program.level === 'Foundation' ? 'bg-green-500/10 text-green-400' :
+            <span className={`px-3 py-1 text-[11px] sm:text-xs font-semibold rounded-full ${program.level === 'Foundation' ? 'bg-green-500/10 text-green-400' :
               program.level === 'Professional' ? 'bg-blue-500/10 text-blue-400' :
                 program.level === 'Advanced' ? 'bg-purple-500/10 text-purple-400' :
                   'bg-amber-500/10 text-amber-400'
@@ -320,23 +321,23 @@ function ProgramCard({ program }: any) {
             </span>
           </div>
 
-          <h3 className="text-xl font-bold mb-3 group-hover:text-orange-500 transition-colors">
+          <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 group-hover:text-orange-500 transition-colors">
             {program.title}
           </h3>
 
           <p className="text-slate-400 text-sm mb-4">{program.description}</p>
 
-          <div className="space-y-2 mb-6">
-            <div className="flex items-center space-x-2 text-sm text-slate-400">
-              <Users className="w-4 h-4 text-orange-500" />
+          <div className="space-y-2 mb-4 sm:mb-6">
+            <div className="flex items-center gap-2 text-sm text-slate-400">
+              <Users className="w-4 h-4 text-orange-500 shrink-0" />
               <span>{program.audience}</span>
             </div>
-            <div className="flex items-center space-x-2 text-sm text-slate-400">
-              <Clock className="w-4 h-4 text-orange-500" />
+            <div className="flex items-center gap-2 text-sm text-slate-400">
+              <Clock className="w-4 h-4 text-orange-500 shrink-0" />
               <span>{program.duration}</span>
             </div>
-            <div className="flex items-center space-x-2 text-sm text-slate-400">
-              <GraduationCap className="w-4 h-4 text-orange-500" />
+            <div className="flex items-center gap-2 text-sm text-slate-400">
+              <GraduationCap className="w-4 h-4 text-orange-500 shrink-0" />
               <span>{program.mode}</span>
             </div>
           </div>

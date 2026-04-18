@@ -19,25 +19,25 @@ const staggerContainer = {
 export function Certifications() {
   return (
     <div className="pt-20">
-      <section className="relative py-24 bg-gradient-to-br from-slate-950 via-orange-950/20 to-slate-900">
-        <div className="container mx-auto px-6">
+      <section className="relative py-16 sm:py-20 md:py-24 bg-gradient-to-br from-slate-950 via-orange-950/20 to-slate-900">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             className="max-w-4xl mx-auto text-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Certifications & Recognition</h1>
-            <p className="text-xl text-slate-300">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6">Certifications & Recognition</h1>
+            <p className="text-base sm:text-lg md:text-xl text-slate-300">
               Validate your digital risk expertise with industry-recognized credentials
             </p>
           </motion.div>
         </div>
       </section>
 
-      <section className="py-16 bg-gradient-to-b from-slate-950 to-slate-900">
-        <div className="container mx-auto px-6">
+      <section className="py-12 sm:py-16 bg-gradient-to-b from-slate-950 to-slate-900">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto"
             variants={staggerContainer}
             initial="initial"
             whileInView="animate"
@@ -91,22 +91,22 @@ export function Certifications() {
         </div>
       </section>
 
-      <section className="py-16 bg-slate-900/50">
-        <div className="container mx-auto px-6">
+      <section className="py-12 sm:py-16 bg-slate-900/50">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-8">Certification Readiness Programs</h2>
-            <p className="text-slate-300 mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">Certification Readiness Programs</h2>
+            <p className="text-slate-300 mb-8 sm:mb-12 text-base sm:text-lg">
               Prepare for industry certifications with our specialized readiness programs
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
               {["CISSP Prep", "CISM Prep", "CRISC Prep"].map((cert, index) => (
-                <div key={index} className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+                <div key={index} className="bg-slate-900/50 border border-slate-800 rounded-xl p-5 sm:p-6 hover:border-orange-500/40 transition-colors">
                   <Award className="w-10 h-10 text-orange-500 mx-auto mb-4" />
-                  <h3 className="text-xl font-bold mb-2">{cert}</h3>
+                  <h3 className="text-lg sm:text-xl font-bold mb-2">{cert}</h3>
                   <p className="text-slate-400 text-sm mb-4">Comprehensive exam preparation and practice</p>
                   <Link
                     to="/programs"
-                    className="text-orange-500 font-semibold inline-flex items-center space-x-1"
+                    className="text-orange-500 font-semibold inline-flex items-center gap-1 min-h-[44px]"
                   >
                     <span>Learn More</span>
                     <ArrowRight className="w-4 h-4" />
@@ -118,16 +118,16 @@ export function Certifications() {
         </div>
       </section>
 
-      <section className="py-24 bg-gradient-to-r from-orange-500 to-blue-600">
-        <div className="container mx-auto px-6">
+      <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-r from-orange-500 to-blue-600">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-4xl font-bold mb-6">Ready to Get Certified?</h2>
-            <p className="text-xl mb-8 text-white/90">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6">Ready to Get Certified?</h2>
+            <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-white/90">
               Choose a certification path and start your journey to professional recognition.
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center space-x-2 px-8 py-4 bg-white text-orange-600 rounded-lg font-semibold hover:bg-slate-100 transition-all"
+              className="inline-flex items-center gap-2 min-h-[52px] px-6 sm:px-8 py-3.5 sm:py-4 bg-white text-orange-600 rounded-lg font-semibold hover:bg-slate-100 active:scale-[0.99] transition-all"
             >
               <span>Get Started</span>
               <ArrowRight className="w-5 h-5" />
@@ -143,7 +143,7 @@ function CertCard({ title, level, description, benefits }: any) {
   return (
     <motion.div
       variants={fadeInUp}
-      className="bg-slate-900/50 border border-slate-800 rounded-xl p-8 hover:border-orange-500/50 transition-all"
+      className="bg-slate-900/50 border border-slate-800 rounded-xl p-6 sm:p-8 hover:border-orange-500/50 transition-all"
     >
       <div className="flex items-center justify-between mb-4">
         <Award className="w-12 h-12 text-orange-500" />

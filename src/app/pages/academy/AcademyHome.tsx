@@ -456,7 +456,7 @@ export function AcademyHome() {
 
       {/* Subheadline Section */}
       <section className="py-12 bg-white border-y border-slate-200">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.p
             className="text-center text-lg text-slate-700 max-w-5xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
@@ -469,8 +469,8 @@ export function AcademyHome() {
       </section>
 
       {/* Our Story & Vision */}
-      <section className="py-24 bg-white text-slate-900">
-        <div className="container mx-auto px-6">
+      <section className="py-16 sm:py-20 md:py-24 bg-white text-slate-900">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             className="text-center mb-12"
             initial={{ opacity: 0, y: 30 }}
@@ -509,8 +509,8 @@ export function AcademyHome() {
       </section>
 
       {/* Audience Routing */}
-      <section className="py-24 bg-gradient-to-b from-slate-950 to-slate-900">
-        <div className="container mx-auto px-6">
+      <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-slate-950 to-slate-900">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
@@ -567,8 +567,8 @@ export function AcademyHome() {
       </section>
 
       {/* What Makes Academy Unique */}
-      <section className="py-24 bg-white text-slate-900">
-        <div className="container mx-auto px-6">
+      <section className="py-16 sm:py-20 md:py-24 bg-white text-slate-900">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
@@ -632,8 +632,8 @@ export function AcademyHome() {
       </section>
 
       {/* Future Learning Tracks */}
-      <section className="py-24 bg-slate-950">
-        <div className="container mx-auto px-6">
+      <section className="py-16 sm:py-20 md:py-24 bg-slate-950">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
@@ -709,8 +709,8 @@ export function AcademyHome() {
       </section>
 
       {/* Validated Outcomes */}
-      <section className="py-24 bg-white text-slate-900">
-        <div className="container mx-auto px-6">
+      <section className="py-16 sm:py-20 md:py-24 bg-white text-slate-900">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             className="text-center mb-14"
             initial={{ opacity: 0, y: 24 }}
@@ -749,9 +749,9 @@ export function AcademyHome() {
       <QuoteSlideshowSection />
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-r from-orange-500 to-blue-600 relative overflow-hidden">
+      <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-r from-orange-500 to-blue-600 relative overflow-hidden">
         <div className="absolute inset-0 bg-black/20" />
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <motion.div
             className="text-center max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
@@ -947,8 +947,8 @@ function QuoteSlideshowSection() {
   const quote = leaderQuotes[current];
 
   return (
-    <section className="py-24 bg-slate-900/60">
-      <div className="container mx-auto px-6 max-w-5xl">
+    <section className="py-16 sm:py-20 md:py-24 bg-slate-900/60">
+      <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
         <motion.div
           className="text-center mb-12"
           initial={{ opacity: 0, y: 24 }}

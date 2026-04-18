@@ -19,25 +19,25 @@ const staggerContainer = {
 export function Resources() {
   return (
     <div className="pt-20">
-      <section className="relative py-24 bg-gradient-to-br from-slate-950 via-orange-950/20 to-slate-900">
-        <div className="container mx-auto px-6">
+      <section className="relative py-16 sm:py-20 md:py-24 bg-gradient-to-br from-slate-950 via-orange-950/20 to-slate-900">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             className="max-w-4xl mx-auto text-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Learning Resources</h1>
-            <p className="text-xl text-slate-300">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6">Learning Resources</h1>
+            <p className="text-base sm:text-lg md:text-xl text-slate-300">
               Free resources to support your digital risk learning journey
             </p>
           </motion.div>
         </div>
       </section>
 
-      <section className="py-16 bg-gradient-to-b from-slate-950 to-slate-900">
-        <div className="container mx-auto px-6">
+      <section className="py-12 sm:py-16 bg-gradient-to-b from-slate-950 to-slate-900">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8"
             variants={staggerContainer}
             initial="initial"
             whileInView="animate"
@@ -83,25 +83,25 @@ export function Resources() {
         </div>
       </section>
 
-      <section className="py-16 bg-slate-900/50">
-        <div className="container mx-auto px-6">
+      <section className="py-12 sm:py-16 bg-slate-900/50">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-8">Career Development Tools</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-8">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">Career Development Tools</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+              <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6 sm:p-8">
                 <FileText className="w-10 h-10 text-blue-500 mx-auto mb-4" />
-                <h3 className="text-xl font-bold mb-2">Career Path Guide</h3>
-                <p className="text-slate-400 mb-4">Navigate your digital risk career with our comprehensive pathway maps</p>
-                <button className="text-blue-500 font-semibold inline-flex items-center space-x-1">
+                <h3 className="text-lg sm:text-xl font-bold mb-2">Career Path Guide</h3>
+                <p className="text-slate-400 text-sm sm:text-base mb-4">Navigate your digital risk career with our comprehensive pathway maps</p>
+                <button type="button" className="text-blue-500 font-semibold inline-flex items-center gap-1 min-h-[44px]">
                   <Download className="w-4 h-4" />
                   <span>Download Guide</span>
                 </button>
               </div>
-              <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-8">
+              <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6 sm:p-8">
                 <BookOpen className="w-10 h-10 text-blue-500 mx-auto mb-4" />
-                <h3 className="text-xl font-bold mb-2">Skills Assessment</h3>
-                <p className="text-slate-400 mb-4">Evaluate your current capabilities and identify growth opportunities</p>
-                <button className="text-blue-500 font-semibold inline-flex items-center space-x-1">
+                <h3 className="text-lg sm:text-xl font-bold mb-2">Skills Assessment</h3>
+                <p className="text-slate-400 text-sm sm:text-base mb-4">Evaluate your current capabilities and identify growth opportunities</p>
+                <button type="button" className="text-blue-500 font-semibold inline-flex items-center gap-1 min-h-[44px]">
                   <ArrowRight className="w-4 h-4" />
                   <span>Take Assessment</span>
                 </button>
@@ -111,16 +111,16 @@ export function Resources() {
         </div>
       </section>
 
-      <section className="py-24 bg-gradient-to-r from-orange-500 to-blue-600">
-        <div className="container mx-auto px-6">
+      <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-r from-orange-500 to-blue-600">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-4xl font-bold mb-6">Ready to Learn More?</h2>
-            <p className="text-xl mb-8 text-white/90">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6">Ready to Learn More?</h2>
+            <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-white/90">
               Explore our full catalog of programs and resources.
             </p>
             <Link
               to="/programs"
-              className="inline-flex items-center space-x-2 px-8 py-4 bg-white text-orange-600 rounded-lg font-semibold hover:bg-slate-100 transition-all"
+              className="inline-flex items-center gap-2 min-h-[52px] px-6 sm:px-8 py-3.5 sm:py-4 bg-white text-orange-600 rounded-lg font-semibold hover:bg-slate-100 active:scale-[0.99] transition-all"
             >
               <span>Browse Programs</span>
               <ArrowRight className="w-5 h-5" />
@@ -136,15 +136,15 @@ function ResourceCard({ icon, type, title, description }: any) {
   return (
     <motion.div
       variants={fadeInUp}
-      className="bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:border-blue-500/50 transition-all"
+      className="bg-slate-900/50 border border-slate-800 rounded-xl p-5 sm:p-6 hover:border-blue-500/50 hover:-translate-y-0.5 transition-all"
     >
       <div className="text-blue-500 mb-4">{icon}</div>
       <div className="inline-block px-3 py-1 bg-blue-500/10 text-blue-400 text-xs font-semibold rounded-full mb-3">
         {type}
       </div>
-      <h3 className="text-xl font-bold mb-2">{title}</h3>
+      <h3 className="text-lg sm:text-xl font-bold mb-2">{title}</h3>
       <p className="text-slate-400 text-sm mb-4">{description}</p>
-      <button className="text-blue-500 font-semibold inline-flex items-center space-x-1 group">
+      <button type="button" className="text-blue-500 font-semibold inline-flex items-center gap-1 min-h-[44px] group">
         <Download className="w-4 h-4" />
         <span>Download</span>
       </button>

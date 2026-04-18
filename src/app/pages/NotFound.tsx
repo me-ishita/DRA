@@ -5,21 +5,21 @@ import { Home, ArrowLeft } from "lucide-react";
 export function NotFound() {
   return (
     <div className="pt-20 min-h-screen flex items-center justify-center bg-gradient-to-b from-slate-950 to-slate-900">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           className="max-w-2xl mx-auto text-center"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="mb-8">
-            <span className="text-9xl font-bold bg-gradient-to-r from-orange-400 via-orange-300 to-blue-400 bg-clip-text text-transparent">
+          <div className="mb-6 sm:mb-8">
+            <span className="text-7xl sm:text-8xl md:text-9xl font-bold bg-gradient-to-r from-orange-400 via-orange-300 to-blue-400 bg-clip-text text-transparent">
               404
             </span>
           </div>
-          
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Page Not Found</h1>
-          <p className="text-xl text-slate-400 mb-8">
+
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Page Not Found</h1>
+          <p className="text-base sm:text-xl text-slate-400 mb-8">
             The page you're looking for doesn't exist or has been moved.
           </p>
 
