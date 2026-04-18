@@ -1,7 +1,7 @@
 "use client";
 import { motion, AnimatePresence } from "motion/react";
 import { Link } from "react-router";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ChevronLeft,
   ChevronRight,
@@ -169,8 +169,31 @@ export function AcademyHome() {
   const [showSecondVideo, setShowSecondVideo] = useState(false);
   const [showFirstHeroDetails, setShowFirstHeroDetails] = useState(false);
   const [showSecondHeroLine, setShowSecondHeroLine] = useState(false);
-  const firstVideoRef = useRef<HTMLVideoElement | null>(null);
-  const secondVideoRef = useRef<HTMLVideoElement | null>(null);
+  const [showIBLine2, setShowIBLine2] = useState(false);
+  const [showIBDesc, setShowIBDesc] = useState(false);
+  const [showIBPoints, setShowIBPoints] = useState(false);
+  const [showIBCTA, setShowIBCTA] = useState(false);
+
+  useEffect(() => {
+    if (showSecondVideo) {
+      setShowIBLine2(false);
+      setShowIBDesc(false);
+      setShowIBPoints(false);
+      setShowIBCTA(false);
+
+      const t1 = setTimeout(() => setShowIBLine2(true), 800);
+      const t2 = setTimeout(() => setShowIBDesc(true), 1800);
+      const t3 = setTimeout(() => setShowIBPoints(true), 3000);
+      const t4 = setTimeout(() => setShowIBCTA(true), 4200);
+
+      return () => {
+        clearTimeout(t1);
+        clearTimeout(t2);
+        clearTimeout(t3);
+        clearTimeout(t4);
+      };
+    }
+  }, [showSecondVideo]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -179,13 +202,6 @@ export function AcademyHome() {
 
     return () => clearInterval(timer);
   }, []);
-
-  useEffect(() => {
-    const active = showSecondVideo ? secondVideoRef.current : firstVideoRef.current;
-    const idle = showSecondVideo ? firstVideoRef.current : secondVideoRef.current;
-    idle?.pause();
-    active?.play().catch(() => {});
-  }, [showSecondVideo]);
 
   useEffect(() => {
     if (showSecondVideo) {
@@ -219,12 +235,9 @@ export function AcademyHome() {
 
           {/* First Video */}
           <video
-            ref={firstVideoRef}
             autoPlay
             muted
             loop
-            playsInline
-            preload="metadata"
             className={`absolute z-10 w-full h-full object-cover transition-opacity duration-1000 ${showSecondVideo ? "opacity-0" : "opacity-100"
               }`}
           >
@@ -233,11 +246,10 @@ export function AcademyHome() {
 
           {/* Second Video */}
           <video
-            ref={secondVideoRef}
+            autoPlay
             muted
             loop
-            playsInline
-            preload="metadata"
+            preload="auto"
             className={`absolute z-20 w-full h-full object-cover transition-opacity duration-1000 ${showSecondVideo ? "opacity-100" : "opacity-0"
               }`}
           >
@@ -246,7 +258,7 @@ export function AcademyHome() {
           <div className="absolute inset-0 bg-black/20"></div>
         </div>
 
-        {/* Hero Section message */}
+        {/* Hero Section message*/}
 
 
 
@@ -307,7 +319,7 @@ export function AcademyHome() {
                         transition={{ duration: 0.5, delay: 0.05 }}
                       >
                         <Link
-                          to="/programs"
+                          to="/academy/programs"
                           className="w-auto group px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg font-semibold hover:shadow-2xl hover:shadow-orange-500/50 transition-all duration-300 flex items-center justify-center space-x-2"
                         >
                           <span>Browse Programs</span>
@@ -326,9 +338,10 @@ export function AcademyHome() {
                 </AnimatePresence>
               </motion.div>
 
-            ) : (
-              //  Investment Banking Programme Slide
+              /*INVESTMENT BANKING SLIDE*/    
 
+            ) : (
+              
               <motion.div
                 key="second-slide"
                 initial={{ opacity: 0 }}
@@ -336,9 +349,11 @@ export function AcademyHome() {
                 className="space-y-8 text-center"
               >
 
+                {/* Tagline */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
+
                   className="inline-block px-6 py-2 rounded-full bg-orange-500/15 border border-orange-400/40 backdrop-blur-sm"
                 >
                   <span className="text-orange-400 text-sm md:text-lg tracking-[0.2em] uppercase font-bold">
@@ -347,72 +362,88 @@ export function AcademyHome() {
                 </motion.div>
 
                 {/* Heading */}
-                <motion.h1
-                  className="text-4xl md:text-6xl font-bold leading-tight text-white"
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                >
-                  <span className="text-slate-300 font-medium block mb-2 text-xl md:text-2xl">
+                <motion.h1 className="text-4xl md:text-6xl font-bold leading-tight flex flex-col items-center gap-y-3 text-white">
+
+                  <span className="text-slate-300 text-xl md:text-2xl">
                     Presenting
                   </span>
 
-                  <span className="logo-shine inline-block text-4xl md:text-5xl font-black tracking-wide uppercase leading-tight">
-                    Investment Banking Programme
-                  </span>
+                  <AnimatePresence>
+                    {showIBLine2 && (
+                      <motion.div
+                        key="ib-title"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+
+                      >
+                        <span className="logo-shine inline-block text-4xl md:text-5xl font-black tracking-wide uppercase">
+                          Investment Banking Programme
+                        </span>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+
                 </motion.h1>
 
-                <motion.p
-                  className="text-lg md:text-2xl font-semibold text-white max-w-3xl mx-auto"
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                >
-                  A 4-week live, high-intensity experience led by professionals from top UK investment banks.
-                </motion.p>
-
-                <motion.div
-                  className="text-slate-300 text-base md:text-lg space-y-2 max-w-2xl mx-auto"
-                  initial="hidden"
-                  animate="visible"
-                  variants={{
-                    hidden: {},
-                    visible: {
-                      transition: { staggerChildren: 0.2 },
-                    },
-                  }}
-                >
-                  {[
-                    "Real-world decision environments — not simulations.",
-                    "Cyber incidents. System outages. High-stakes decisions.",
-                    "Operate and think like investment banking professionals.",
-                  ].map((line, i) => (
+                {/* Description */}
+                <AnimatePresence>
+                  {showIBDesc && (
                     <motion.p
-                      key={i}
-                      variants={{
-                        hidden: { opacity: 0, y: 20 },
-                        visible: { opacity: 1, y: 0 },
-                      }}
+                      key="ib-desc"
+                      className="text-lg md:text-2xl font-semibold text-white max-w-3xl mx-auto"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.6, ease: "easeOut" }}
+
                     >
-                      {line}
+                      A 4-week live, high-intensity experience led by professionals from top UK investment banks.
                     </motion.p>
-                  ))}
-                </motion.div>
+                  )}
+                </AnimatePresence>
+
+                {/* Points */}
+                <AnimatePresence>
+                  {showIBPoints && (
+                    <motion.div
+                      key="ib-points"
+                      className="text-slate-300 text-base md:text-lg space-y-2 max-w-2xl mx-auto"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.6, ease: "easeOut" }}
+
+                    >
+                      <p>Real-world decision environments — not simulations.</p>
+                      <p>Cyber incidents. System outages. High-stakes decisions.</p>
+                      <p>Operate and think like investment banking professionals.</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
 
                 {/* CTA */}
-                <motion.div
-                  className="flex justify-center pt-4"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8 }}
-                >
-                  <Link
-                    to="/programs"
-                    className="px-10 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-semibold text-lg hover:shadow-2xl hover:shadow-orange-500/40 transition-all duration-300"
-                  >
-                    Enroll Now →
-                  </Link>
-                </motion.div>
+                <AnimatePresence>
+                  {showIBCTA && (
+                    <motion.div
+                      key="ib-cta"
+                      className="flex justify-center pt-4"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.4, ease: "easeOut" }}
+
+                    >
+                      <Link
+                        to="/academy/programs"
+                        className="px-10 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-semibold text-lg hover:shadow-2xl hover:shadow-orange-500/40 transition-all duration-300"
+                      >
+                        Enroll Now →
+                      </Link>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
 
               </motion.div>
             )}
@@ -420,7 +451,7 @@ export function AcademyHome() {
           </div>
         </div>
 
-        <div className="pointer-events-none absolute top-1/4 right-1/4 w-80 h-80 bg-orange-500/15 rounded-full blur-2xl" />
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-orange-500/20 rounded-full blur-3xl animate-pulse" />
       </section>
 
       {/* Subheadline Section */}
@@ -503,7 +534,7 @@ export function AcademyHome() {
               icon={<Users className="w-10 h-10" />}
               title="For Students"
               description="Launch your digital risk career with industry-ready skills"
-              link="/programs"
+              link="/academy/programs"
               color="orange"
               image="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=55&w=720&auto=format&fit=crop"
             />
@@ -511,7 +542,7 @@ export function AcademyHome() {
               icon={<Briefcase className="w-10 h-10" />}
               title="For Professionals"
               description="Advance your career with specialized risk expertise"
-              link="/programs"
+              link="/academy/programs"
               color="blue"
               image="https://images.unsplash.com/photo-1552664730-d307ca884978?q=55&w=720&auto=format&fit=crop"
             />
@@ -519,7 +550,7 @@ export function AcademyHome() {
               icon={<Building2 className="w-10 h-10" />}
               title="For Organizations"
               description="Build team capability through corporate training"
-              link="/programs"
+              link="/academy/programs"
               color="orange"
               image="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=55&w=720&auto=format&fit=crop"
             />
@@ -667,7 +698,7 @@ export function AcademyHome() {
             viewport={{ once: true }}
           >
             <Link
-              to="/programs"
+              to="/academy/programs"
               className="inline-flex items-center space-x-2 text-orange-500 hover:text-orange-400 font-semibold group text-lg"
             >
               <span>View All Programs</span>
@@ -733,7 +764,7 @@ export function AcademyHome() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                to="/programs"
+                to="/academy/programs"
                 className="px-8 py-4 bg-white text-orange-600 rounded-lg font-semibold hover:bg-slate-100 transition-all duration-300"
               >
                 Browse All Programs
@@ -759,7 +790,7 @@ function AcademyStoryPanel({ slides, label, accent }: { slides: typeof academySt
   useEffect(() => {
     const slideId = setInterval(() => setCurrent((c: number) => (c + 1) % total), ACADEMY_SLIDE_DURATION);
     return () => { clearInterval(slideId); };
-  }, [total]);
+  }, [current, total]);
 
   const slide = slides[current];
 
@@ -770,8 +801,6 @@ function AcademyStoryPanel({ slides, label, accent }: { slides: typeof academySt
           key={current}
           src={slide.image}
           alt={slide.heading}
-          loading="lazy"
-          decoding="async"
           className="absolute inset-0 w-full h-full object-cover brightness-110 contrast-110"
           initial={{ opacity: 0, scale: 1.05 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -893,7 +922,7 @@ function TrackCard({ title, level, duration, modules }: any) {
         ))}
       </ul>
       <Link
-        to="/programs"
+        to="/academy/programs"
         className="text-orange-500 font-semibold inline-flex items-center space-x-1 group"
       >
         <span>View Program</span>
