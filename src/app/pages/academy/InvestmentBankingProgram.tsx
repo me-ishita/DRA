@@ -46,10 +46,10 @@ export default function InvestmentBankingProgram() {
                         {/* Pricing */}
                         <div className="flex items-center gap-4 mb-8">
                             <span className="text-2xl text-slate-400 line-through">
-                                ₹49,999
+                                ₹50,000
                             </span>
                             <span className="text-4xl font-bold text-orange-400">
-                                ₹39,999
+                                ₹38,750
                             </span>
                             <span className="text-sm bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full">
                                 Early Access Offer
