@@ -238,7 +238,9 @@ export function AcademyHome() {
             autoPlay
             muted
             loop
-            className={`absolute z-10 w-full h-full object-cover transition-opacity duration-1000 ${showSecondVideo ? "opacity-0" : "opacity-100"
+            playsInline
+            preload="auto"
+            className={`absolute inset-0 z-10 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${showSecondVideo ? "opacity-0" : "opacity-100"
               }`}
           >
             <source src="/academy-hero.mp4" type="video/mp4" />
@@ -249,8 +251,9 @@ export function AcademyHome() {
             autoPlay
             muted
             loop
+            playsInline
             preload="auto"
-            className={`absolute z-20 w-full h-full object-cover transition-opacity duration-1000 ${showSecondVideo ? "opacity-100" : "opacity-0"
+            className={`absolute inset-0 z-20 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${showSecondVideo ? "opacity-100" : "opacity-0"
               }`}
           >
             <source src="/Investment Banking.mp4" type="video/mp4" />
@@ -795,19 +798,17 @@ function AcademyStoryPanel({ slides, label, accent }: { slides: typeof academySt
   const slide = slides[current];
 
   return (
-    <div className="relative h-[420px] md:h-[500px] lg:h-[540px] overflow-hidden rounded-2xl">
-      <AnimatePresence mode="sync">
-        <motion.img
-          key={current}
-          src={slide.image}
-          alt={slide.heading}
-          className="absolute inset-0 w-full h-full object-cover brightness-110 contrast-110"
-          initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
+    <div className="relative h-[420px] md:h-[500px] lg:h-[540px] overflow-hidden rounded-2xl bg-slate-950">
+      {slides.map((s, i) => (
+        <img
+          key={s.image}
+          src={s.image}
+          alt={s.heading}
+          loading={i === 0 ? "eager" : "lazy"}
+          className="absolute inset-0 w-full h-full object-cover brightness-110 contrast-110 transition-opacity duration-[900ms] ease-in-out"
+          style={{ opacity: i === current ? 1 : 0 }}
         />
-      </AnimatePresence>
+      ))}
       <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-black/10" />
 
       <div className="absolute top-6 left-6 z-10">

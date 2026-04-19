@@ -16,13 +16,12 @@ export default function InvestmentBankingProgram() {
             {/* ================= HERO SECTION ================= */}
             <section className="relative py-16 sm:py-20 md:py-24 bg-gradient-to-br from-slate-950 via-orange-950/20 to-slate-900 overflow-hidden">
                 {/* Background Image */}
-                <div className="absolute inset-0">
-                    <motion.img
+                <div className="absolute inset-0 bg-slate-950">
+                    <img
                         src="https://images.unsplash.com/photo-1551288049-bebda4e38f71"
                         alt=""
+                        loading="eager"
                         className="w-full h-full object-cover opacity-30"
-                        animate={{ scale: [1, 1.05, 1] }}
-                        transition={{ duration: 12, repeat: Infinity }}
                     />
                     {/* Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
