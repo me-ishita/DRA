@@ -8,16 +8,30 @@ import { Resources } from "./pages/academy/Resources";
 import { Contact } from "./pages/Contact";
 import { NotFound } from "./pages/NotFound";
 import InvestmentBankingProgram from "./pages/academy/InvestmentBankingProgram";
-
+import DigitalRiskFundamentals from "./pages/academy/DigitalRiskFundamentals";
+import CyberResiliencePractitioner from "./pages/academy/CyberResiliencePractitioner";
+import AIRiskGovernance from "./pages/academy/AIRiskGovernance";
+import ExecutiveLeadership from "./pages/academy/ExecutiveLeadership";
+import CNISCC from "./pages/academy/CNISCC";
 export const router = createBrowserRouter([
   {
     path: "/",
     Component: Layout,
     children: [
       { index: true, Component: AcademyHome },
-      { path: "programs", Component: AcademyPrograms },
-      { path: "programs/investment-banking", Component: InvestmentBankingProgram },
-      { path: "programs/:id", Component: ProgramDetail },
+      { 
+        path: "programs",
+        children: [
+          { index: true, Component: AcademyPrograms },
+          { path: "investment-banking", Component: InvestmentBankingProgram },
+          { path: "digital-risk-fundamentals", Component: DigitalRiskFundamentals },
+          { path: "cyber-resilience-practitioner", Component: CyberResiliencePractitioner },
+          { path: "ai-risk-governance", Component: AIRiskGovernance },
+          { path: "executive-leadership", Component: ExecutiveLeadership },
+          { path: "cniscc", Component: CNISCC },
+          { path: ":id", Component: ProgramDetail },
+        ]
+      },
       { path: "certifications", Component: Certifications },
       { path: "resources", Component: Resources },
       { path: "contact", Component: Contact },

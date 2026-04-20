@@ -6,18 +6,8 @@ import brandLogo from "@/assets/b402c8efd70b38e0d5cb2eef9fe01649b01c6575.png";
 
 export function Layout() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const brandName = "Digital Risk Academy";
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () =>
-      window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   useEffect(() => {
     setMobileMenuOpen(false);
@@ -27,13 +17,7 @@ export function Layout() {
   return (
     <div className="min-h-screen bg-slate-950 text-white">
       <motion.header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          mobileMenuOpen
-            ? "bg-slate-950/95 backdrop-blur-lg border-b border-slate-800"
-            : scrolled
-            ? "bg-slate-950/95 backdrop-blur-lg border-b border-slate-800"
-            : "bg-transparent"
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#020617] backdrop-blur-lg border-b border-slate-800 text-white"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6 }}
