@@ -1,7 +1,8 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --font-size: 16px--background: #f8fafc; /* soft light gray */
+  --font-size: 16px--background: #f8fafc;
+  /* soft light gray */
   --card: #ffffff;
   --muted: #f1f5f9;
   --accent: #eef2ff;
@@ -81,8 +82,8 @@
 }
 
 @theme inline {
-  --font-display: 'Ubuntu', system-ui, sans-serif;
-  --font-sans: 'Ubuntu', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-display: 'Ubuntu', sans-serif;
+  --font-sans: 'Ubuntu', ui-sans-serif, system-ui, sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -116,31 +117,31 @@
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(
-    --sidebar-primary-foreground
-  );
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
   --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(
-    --sidebar-accent-foreground
-  );
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
 @keyframes logoShine {
-  0%   { background-position: -200% center; }
-  100% { background-position: 200% center; }
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
 }
 
 .logo-shine {
   background: linear-gradient(90deg,
-    #f97316 0%,
-    #fb923c 20%,
-    #fde68a 40%,
-    #93c5fd 60%,
-    #3b82f6 80%,
-    #f97316 100%
-  );
+      #f97316 0%,
+      #fb923c 20%,
+      #fde68a 40%,
+      #93c5fd 60%,
+      #3b82f6 80%,
+      #f97316 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -155,25 +156,7 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Ubuntu', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-  }
-
-  html, body {
-    background-color: #0f172a;
-  }
-
-  /* Stabilise animated media across browsers — prevents hero/background flicker. */
-  img, video {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    transform: translateZ(0);
-  }
-
-  video {
-    background-color: #0f172a;
+    font-family: 'Ubuntu', sans-serif;
   }
 
   /**
@@ -307,6 +290,7 @@
     .slick-prev {
       left: -40px;
     }
+
     .slick-next {
       right: -40px;
     }
@@ -316,9 +300,11 @@
     .slick-prev {
       left: 10px;
     }
+
     .slick-next {
       right: 10px;
     }
+
     .slick-arrow {
       width: 40px;
       height: 40px;

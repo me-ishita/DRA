@@ -1,7 +1,8 @@
 "use client";
-import { motion, AnimatePresence } from "motion/react";
+import { useScroll, useTransform, motion, AnimatePresence } from "motion/react";
 import { Link } from "react-router";
 import { useEffect, useState } from "react";
+import { useRef } from "react";
 import {
   ChevronLeft,
   ChevronRight,
@@ -14,6 +15,7 @@ import {
   Briefcase,
   BookOpen,
   TrendingUp,
+  Landmark,
   CheckCircle,
 } from "lucide-react";
 
@@ -30,6 +32,8 @@ const staggerContainer = {
     },
   },
 };
+
+
 
 const ACADEMY_SLIDE_DURATION = 4000;
 const HERO_WORD_DURATION_MS = 720;
@@ -165,53 +169,185 @@ const leaderQuotes = [
   },
 ];
 
-export function AcademyHome() {
-  const [showSecondVideo, setShowSecondVideo] = useState(false);
-  const [showFirstHeroDetails, setShowFirstHeroDetails] = useState(false);
-  const [showSecondHeroLine, setShowSecondHeroLine] = useState(false);
-  const [showIBLine2, setShowIBLine2] = useState(false);
-  const [showIBDesc, setShowIBDesc] = useState(false);
-  const [showIBPoints, setShowIBPoints] = useState(false);
-  const [showIBCTA, setShowIBCTA] = useState(false);
+
+/*function StoryVisionImpactSection() {
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    if (showSecondVideo) {
-      setShowIBLine2(false);
-      setShowIBDesc(false);
-      setShowIBPoints(false);
-      setShowIBCTA(false);
+    const interval = setInterval(() => {
+      setIndex((prev) => prev + 1);
+    }, 3500);
 
-      const t1 = setTimeout(() => setShowIBLine2(true), 800);
-      const t2 = setTimeout(() => setShowIBDesc(true), 1800);
-      const t3 = setTimeout(() => setShowIBPoints(true), 3000);
-      const t4 = setTimeout(() => setShowIBCTA(true), 4200);
-
-      return () => {
-        clearTimeout(t1);
-        clearTimeout(t2);
-        clearTimeout(t3);
-        clearTimeout(t4);
-      };
-    }
-  }, [showSecondVideo]);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setShowSecondVideo((prev) => !prev);
-    }, 10000); // 10 seconds
-
-    return () => clearInterval(timer);
+    return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
-    if (showSecondVideo) {
-      setShowFirstHeroDetails(false);
-      setShowSecondHeroLine(false);
-      return;
-    }
+  const story = academyStorySlides[index % academyStorySlides.length];
+  const vision = academyVisionSlides[index % academyVisionSlides.length];
+  const impact = academyImpactSlides[index % academyImpactSlides.length];
 
+  const cards = [
+    { title: "Our Story", data: story, icon: BookOpen },
+    { title: "Our Vision", data: vision, icon: Target },
+    { title: "Social Impact", data: impact, icon: Users },
+  ];
+
+  return (
+    <section className="py-28 bg-black text-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 120 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="grid md:grid-cols-3 gap-10"
+        >
+          {cards.map((card, i) => {
+            const Icon = card.icon;
+
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 150, rotateY: 90 }}
+                whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+                transition={{ delay: i * 0.2, duration: 0.8 }}
+                viewport={{ once: true }}
+                className="relative h-[420px] perspective"
+              >
+                <motion.div
+                  key={index}
+                  initial={{ rotateY: 90, opacity: 0 }}
+                  animate={{ rotateY: 0, opacity: 1 }}
+                  transition={{ duration: 0.7 }}
+                  className="absolute inset-0 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-xl"
+                >
+                  <img
+                    src={card.data.image}
+                    className="w-full h-40 object-cover"
+                  />
+
+                  <div className="p-6">
+                    <Icon className="w-8 h-8 mb-3 text-white/80" />
+
+                    <h3 className="text-lg font-semibold mb-2">
+                      {card.title}
+                    </h3>
+
+                    <h4 className="text-sm text-white/60 mb-2">
+                      {card.data.heading}
+                    </h4>
+
+                    <p className="text-sm text-white/70">
+                      {card.data.body}
+                    </p>
+                  </div>
+                </motion.div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+      </div>
+    </section>
+  );
+}*/
+
+
+export default function InvestmentBankingCard() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ scale: 1.02, y: -6 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="relative z-10 w-full max-w-6xl mx-auto rounded-[32px] overflow-hidden shadow-[0_30px_100px_rgba(0,0,0,0.25)] border border-white/10 min-h-[420px] md:min-h-[500px]"    >
+
+      {/* VIDEO BACKGROUND */}
+      <div className="absolute inset-0">
+        <video
+          src="/Investment Banking.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover brightness-110 contrast-110"
+        />
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-[1px]" />
+      </div>
+
+      {/* CONTENT */}
+      <div className="relative z-10 p-8 md:p-14 text-white flex flex-col gap-8">
+
+        {/* Title */}
+        <h2 className="leading-tight text-center md:text-left">
+          <span className="block logo-shine text-4xl md:text-6xl font-extrabold tracking-wide uppercase text-white drop-shadow-[0_0_12px_rgba(255,255,255,0.25)]">
+            Investment Banking Programme
+          </span>
+        </h2>
+
+        {/* Highlights */}
+        <div className="grid md:grid-cols-1 gap-y-3 sm:gap-y-4 gap-x-6">
+
+          <div className="flex items-center gap-3">
+            <Users className="w-5 h-5 text-orange-400 shrink-0" />
+            <span className="text-base md:text-lg font-semibold text-slate-100">
+              For students & early-career professionals
+            </span>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <Landmark className="w-5 h-5 text-orange-400 shrink-0" />
+            <span className="text-base md:text-lg font-semibold text-slate-100">
+              Real-world banking scenarios
+            </span>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <Briefcase className="w-5 h-5 text-orange-400 shrink-0" />
+            <span className="text-base md:text-lg font-semibold text-slate-100">
+              Career guidance & mentorship
+            </span>
+          </div>
+
+        </div>
+        {/* Pricing + CTA */}
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 pt-4">
+
+          {/* Price */}
+          <div className="flex items-center gap-4">
+            <span className="text-white/40 line-through text-xl">
+              ₹50,000
+            </span>
+            <span className="text-3xl md:text-4xl font-bold text-orange-400">
+              ₹38,750
+            </span>
+            <span className="text-sm text-orange-300 bg-orange-500/20 px-3 py-1 rounded-full border border-orange-400/30">
+              Early Access
+            </span>
+          </div>
+
+          {/* CTA */}
+          <Link
+            to="/academy/programs/investment-banking"
+            className="px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl font-semibold text-lg hover:shadow-2xl hover:shadow-orange-500/40 transition-all duration-300"
+          >
+            Apply Now →
+          </Link>
+
+        </div>
+      </div>
+
+    </motion.div>
+  );
+}
+
+export function AcademyHome() {
+  const [showFirstHeroDetails, setShowFirstHeroDetails] = useState(false);
+  const [showSecondHeroLine, setShowSecondHeroLine] = useState(false);
+
+  useEffect(() => {
     setShowFirstHeroDetails(false);
     setShowSecondHeroLine(false);
+
     const revealTimer = setTimeout(() => {
       setShowFirstHeroDetails(true);
     }, HERO_DETAILS_REVEAL_DELAY_MS);
@@ -224,296 +360,208 @@ export function AcademyHome() {
       clearTimeout(revealTimer);
       clearTimeout(secondLineTimer);
     };
-  }, [showSecondVideo]);
+  }, []);
+  const heroRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+
+  // animation controls
+  const y = useTransform(scrollYProgress, [0, 0.4], [200, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+  const rotate = useTransform(scrollYProgress, [0, 0.4], [40, 0]);
+
+  const [slideIndex, setSlideIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSlideIndex((prev) => prev + 1);
+    }, 3000); // flip speed
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const story = academyStorySlides[slideIndex % academyStorySlides.length];
+  const vision = academyVisionSlides[slideIndex % academyVisionSlides.length];
+  const impact = academyImpactSlides[slideIndex % academyImpactSlides.length];
 
   return (
-    <div className="pt-20">
+    <div className="pt-0 mt-0">
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950/75 via-orange-950/15 to-slate-900/70" />
-        <div className="absolute inset-0 opacity-55">
+      <section ref={heroRef} className="relative h-[120vh] overflow-hidden">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 z-0 w-full h-full object-cover scale-105 brightness-[0.8]"
+        >
+          <source src="/academy-hero.mp4" type="video/mp4" />
+        </video>
 
-          {/* First Video */}
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            className={`absolute inset-0 z-10 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${showSecondVideo ? "opacity-0" : "opacity-100"
-              }`}
-          >
-            <source src="/academy-hero.mp4" type="video/mp4" />
-          </video>
+        {/* Strong overlay */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/30 via-black/40 to-black/60"></div>
+        <motion.div
+          style={{ y, opacity }}
+          className="absolute bottom-20 left-1/2 -translate-x-1/2 w-full max-w-6xl px-6 z-[999]"
+        >
+          <div className="absolute inset-0 bg-black/30 backdrop-blur-md rounded-2xl -z-10"></div>
+          <div className="grid md:grid-cols-3 gap-6">
 
-          {/* Second Video */}
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            className={`absolute inset-0 z-20 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${showSecondVideo ? "opacity-100" : "opacity-0"
-              }`}
-          >
-            <source src="/Investment Banking.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-black/20"></div>
-        </div>
-
-        {/* Hero Section message*/}
-
-
-
-        <div className="w-full h-screen flex items-center justify-center px-6 relative z-30">
-          <div className="w-full max-w-5xl text-center">
-
-            {!showSecondVideo ? (
-
+            {/* STORY CARD */}
+            <motion.div
+              style={{ rotateY: rotate }}
+              className="relative h-[320px] bg-slate-900 border border-white/20 shadow-2xl overflow-hidden z-[1000]"  >
               <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
+                key={slideIndex}
+                initial={{ rotateY: 90, opacity: 0 }}
+                animate={{ rotateY: 0, opacity: 1 }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                className="absolute inset-0"
               >
-                <motion.h1
-                  className="text-5xl md:text-6xl font-bold mb-6 leading-tight flex flex-col items-center text-center gap-y-3"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3, duration: 0.8 }}
-                >
-                  <WordRevealLine text="Leadership is not taught." className="block" />
-                  <AnimatePresence>
-                    {showSecondHeroLine && (
-                      <motion.div
-                        key="forged-line"
-                        className="w-full min-h-[1.25em] flex justify-center"
-                        initial={{ opacity: 0, y: 18 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 18 }}
-                        transition={{ duration: 0.45, ease: "easeOut" }}
-                      >
-                        <WordRevealLine text="It is forged in live decisions." className="block" wordClassName="logo-shine" />
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.h1>
+                <div className="absolute inset-0 bg-black/40 mix-blend-multiply pointer-events-none"></div>
 
-                <AnimatePresence>
-                  {showFirstHeroDetails && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 20 }}
-                      transition={{ duration: 0.55 }}
-                    >
-                      <motion.p
-                        className="text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto text-center"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.45 }}
-                      >
-                        Digital Risk Academy operates as a not-for-profit - driven by impact, not commercial gain.
-                      </motion.p>
-
-                      <motion.div
-                        className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-                        initial={{ opacity: 0, y: 24 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.05 }}
-                      >
-                        <Link
-                          to="/academy/programs"
-                          className="w-auto group px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg font-semibold hover:shadow-2xl hover:shadow-orange-500/50 transition-all duration-300 flex items-center justify-center space-x-2"
-                        >
-                          <span>Browse Programs</span>
-                          <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </Link>
-
-                        <Link
-                          to="/contact"
-                          className="w-auto group px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/10 text-white rounded-lg font-semibold hover:bg-white/10 transition-all duration-300 flex items-center justify-center space-x-2"
-                        >
-                          <span>Talk to an Advisor</span>
-                        </Link>
-                      </motion.div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                <img src={story.image} className="w-full h-32 object-cover brightness-90" />
+                <div className="p-4">
+                  <h3 className="text-white font-semibold mb-1">Our Story</h3>
+                  <h4 className="text-white/90 text-sm mb-1">{story.heading}</h4>
+                  <p className="text-white/80 text-xs">{story.body}</p>
+                </div>
               </motion.div>
+            </motion.div>
 
-              /*INVESTMENT BANKING SLIDE*/    
-
-            ) : (
-              
+            {/* VISION CARD */}
+            <motion.div
+              style={{ rotateY: rotate }}
+              className="relative h-[320px] bg-slate-900/95 border border-white/20 shadow-2xl overflow-hidden hover:shadow-white/20 hover:shadow-2xl transition-all duration-300"
+            >
               <motion.div
-                key="second-slide"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="space-y-8 text-center"
+                key={slideIndex}
+                initial={{ rotateY: 90, opacity: 0 }}
+                animate={{ rotateY: 0, opacity: 1 }}
+                transition={{ duration: 0.6 }}
+                className="absolute inset-0"
               >
-
-                {/* Tagline */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-
-                  className="inline-block px-6 py-2 rounded-full bg-orange-500/15 border border-orange-400/40 backdrop-blur-sm"
-                >
-                  <span className="text-orange-400 text-sm md:text-lg tracking-[0.2em] uppercase font-bold">
-                    New Launch • Digital Risk Academy
-                  </span>
-                </motion.div>
-
-                {/* Heading */}
-                <motion.h1 className="text-4xl md:text-6xl font-bold leading-tight flex flex-col items-center gap-y-3 text-white">
-
-                  <span className="text-slate-300 text-xl md:text-2xl">
-                    Presenting
-                  </span>
-
-                  <AnimatePresence>
-                    {showIBLine2 && (
-                      <motion.div
-                        key="ib-title"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
-
-                      >
-                        <span className="logo-shine inline-block text-4xl md:text-5xl font-black tracking-wide uppercase">
-                          Investment Banking Programme
-                        </span>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-
-                </motion.h1>
-
-                {/* Description */}
-                <AnimatePresence>
-                  {showIBDesc && (
-                    <motion.p
-                      key="ib-desc"
-                      className="text-lg md:text-2xl font-semibold text-white max-w-3xl mx-auto"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.6, ease: "easeOut" }}
-
-                    >
-                      A 4-week live, high-intensity experience led by professionals from top UK investment banks.
-                    </motion.p>
-                  )}
-                </AnimatePresence>
-
-                {/* Points */}
-                <AnimatePresence>
-                  {showIBPoints && (
-                    <motion.div
-                      key="ib-points"
-                      className="text-slate-300 text-base md:text-lg space-y-2 max-w-2xl mx-auto"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.6, ease: "easeOut" }}
-
-                    >
-                      <p>Real-world decision environments — not simulations.</p>
-                      <p>Cyber incidents. System outages. High-stakes decisions.</p>
-                      <p>Operate and think like investment banking professionals.</p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-
-                {/* CTA */}
-                <AnimatePresence>
-                  {showIBCTA && (
-                    <motion.div
-                      key="ib-cta"
-                      className="flex justify-center pt-4"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.4, ease: "easeOut" }}
-
-                    >
-                      <Link
-                        to="/academy/programs"
-                        className="px-10 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-semibold text-lg hover:shadow-2xl hover:shadow-orange-500/40 transition-all duration-300"
-                      >
-                        Enroll Now →
-                      </Link>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-
+                <img src={vision.image} className="w-full h-32 object-cover" />
+                <div className="p-4">
+                  <h3 className="text-white font-semibold mb-1">Our Vision</h3>
+                  <h4 className="text-white/90 text-sm mb-1">{vision.heading}</h4>
+                  <p className="text-white/80 text-xs">{vision.body}</p>
+                </div>
               </motion.div>
-            )}
+            </motion.div>
+
+            {/* IMPACT CARD */}
+            <motion.div
+              style={{ rotateY: rotate }}
+              className="relative h-[320px] bg-black/70 backdrop-blur-xl rounded-2xl border border-white/30 overflow-hidden hover:shadow-white/20 hover:shadow-2xl transition-all duration-300"
+            >
+              <motion.div
+                key={slideIndex}
+                initial={{ rotateY: 90, opacity: 0 }}
+                animate={{ rotateY: 0, opacity: 1 }}
+                transition={{ duration: 0.6 }}
+                className="absolute inset-0"
+              >
+                <img src={impact.image} className="w-full h-32 object-cover" />
+                <div className="p-4">
+                  <h3 className="text-white font-semibold mb-1">Impact</h3>
+                  <h4 className="text-white/90 text-sm mb-1">{impact.heading}</h4>
+                  <p className="text-white/80 text-xs">{impact.body}</p>
+                </div>
+              </motion.div>
+            </motion.div>
 
           </div>
-        </div>
+        </motion.div>
 
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-orange-500/20 rounded-full blur-3xl animate-pulse" />
-      </section>
-
-      {/* Subheadline Section */}
-      <section className="py-12 bg-white border-y border-slate-200">
-        <div className="container mx-auto px-4 sm:px-6">
-          <motion.p
-            className="text-center text-lg text-slate-700 max-w-5xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            Digital Risk Academy helps individuals and institutions build practical, industry-relevant capability in cyber risk, governance, digital trust, compliance, and emerging technology risk.
-          </motion.p>
-        </div>
-      </section>
-
-      {/* Our Story & Vision */}
-      <section className="py-16 sm:py-20 md:py-24 bg-white text-slate-900">
-        <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Story, Vision & Impact</h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              We believe education should go beyond textbooks and help learners build confidence, clarity, and career direction.
-            </p>
-          </motion.div>
-
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-7xl mx-auto" initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <AcademyStoryPanel
-              slides={academyStorySlides}
-              label="Our Story"
-              accent="text-orange-400 border-orange-500/40 bg-orange-500/10"
-            />
-            <AcademyStoryPanel
-              slides={academyVisionSlides}
-              label="Our Vision"
-              accent="text-blue-400 border-blue-500/40 bg-blue-500/10"
-            />
-            <AcademyStoryPanel
-              slides={academyImpactSlides}
-              label="Social Impact"
-              accent="text-orange-400 border-orange-500/40 bg-orange-500/10"
-            />
-          </motion.div>
+        {/* Hero Section message*/}
+        <div className="w-full h-screen flex items-center justify-center px-6 relative z-30">
+          <div className="w-full max-w-5xl text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }} >
+              <motion.h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight flex flex-col items-center text-center gap-y-3"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.8 }} >
+                <WordRevealLine text="Leadership is not taught." className="block" />
+                <AnimatePresence>
+                  {showSecondHeroLine && (<motion.div key="forged-line" className="w-full min-h-[1.25em] flex justify-center"
+                    initial={{ opacity: 0, y: 18 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 18 }}
+                    transition={{ duration: 0.45, ease: "easeOut" }} >
+                    <WordRevealLine text="It is forged in live decisions." className="block" wordClassName="logo-shine" />
+                  </motion.div>)}
+                </AnimatePresence>
+              </motion.h1>
+              <AnimatePresence>
+                {showFirstHeroDetails && (
+                  <motion.div initial={{
+                    opacity: 0, y: 20
+                  }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 20 }}
+                    transition={{ duration: 0.55 }} >
+                    <motion.p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto text-center"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.45 }} > Digital Risk Academy operates as a not-for-profit - driven by impact, not commercial gain.
+                    </motion.p> <motion.div className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+                      initial={{ opacity: 0, y: 24 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.05 }} >
+                      <Link to="/academy/programs"
+                        className="w-auto group px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg font-semibold hover:shadow-2xl hover:shadow-orange-500/50 transition-all duration-300 flex items-center justify-center space-x-2" >
+                        <span>Browse Programmes</span>
+                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                      <Link to="/contact" className="w-auto group px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/10 text-white rounded-lg font-semibold hover:bg-white/10 transition-all duration-300 flex items-center justify-center space-x-2" >
+                        <span>Talk to an Adviser</span>
+                      </Link>
+                    </motion.div>
+                  </motion.div>)}
+              </AnimatePresence>
+            </motion.div>
+          </div>
         </div>
       </section>
+
+      {/* INVESTMENT BANKING SECTION */}
+
+      <section className="py-10 bg-white text-slate-900 relative overflow-hidden">
+
+        {/* Heading */}
+        <div className="max-w-6xl mx-auto px-6 text-center mb-16 relative z-10">
+
+          <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+            <span className="text-orange-500 font-semibold">
+              New Launch:
+            </span>{" "}
+            June 2026 Elite Programme
+          </h2>
+
+          <p className="mt-6 text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            A 4-week live, high-intensity programme led by professionals working in top UK investment banks across digital risk, cyber risk, and financial services.
+          </p>
+
+        </div>
+
+        {/* ✅ Centered Card */}
+        <div className="relative z-10 flex justify-center px-4 md:px-10">
+          <InvestmentBankingCard />
+        </div>
+
+      </section>
+
 
       {/* Audience Routing */}
-      <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-slate-950 to-slate-900">
-        <div className="container mx-auto px-4 sm:px-6">
+      <section className="py-24 bg-gradient-to-b from-slate-950 to-slate-900">
+        <div className="container mx-auto px-6">
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
@@ -543,7 +591,7 @@ export function AcademyHome() {
             />
             <AudienceCard
               icon={<Briefcase className="w-10 h-10" />}
-              title="For Professionals"
+              title="For Early Career Professionals"
               description="Advance your career with specialized risk expertise"
               link="/academy/programs"
               color="blue"
@@ -551,7 +599,7 @@ export function AcademyHome() {
             />
             <AudienceCard
               icon={<Building2 className="w-10 h-10" />}
-              title="For Organizations"
+              title="For Experienced Professionals"
               description="Build team capability through corporate training"
               link="/academy/programs"
               color="orange"
@@ -559,7 +607,7 @@ export function AcademyHome() {
             />
             <AudienceCard
               icon={<School className="w-10 h-10" />}
-              title="For Institutions"
+              title="For Organisations"
               description="Partner with us to enhance academic programs"
               link="/contact"
               color="blue"
@@ -570,8 +618,8 @@ export function AcademyHome() {
       </section>
 
       {/* What Makes Academy Unique */}
-      <section className="py-16 sm:py-20 md:py-24 bg-white text-slate-900">
-        <div className="container mx-auto px-4 sm:px-6">
+      <section className="py-24 bg-white text-slate-900">
+        <div className="container mx-auto px-6">
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
@@ -635,8 +683,8 @@ export function AcademyHome() {
       </section>
 
       {/* Future Learning Tracks */}
-      <section className="py-16 sm:py-20 md:py-24 bg-slate-950">
-        <div className="container mx-auto px-4 sm:px-6">
+      <section className="py-24 bg-slate-950">
+        <div className="container mx-auto px-6">
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
@@ -712,8 +760,8 @@ export function AcademyHome() {
       </section>
 
       {/* Validated Outcomes */}
-      <section className="py-16 sm:py-20 md:py-24 bg-white text-slate-900">
-        <div className="container mx-auto px-4 sm:px-6">
+      <section className="py-24 bg-white text-slate-900">
+        <div className="container mx-auto px-6">
           <motion.div
             className="text-center mb-14"
             initial={{ opacity: 0, y: 24 }}
@@ -752,9 +800,9 @@ export function AcademyHome() {
       <QuoteSlideshowSection />
 
       {/* CTA Section */}
-      <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-r from-orange-500 to-blue-600 relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-r from-orange-500 to-blue-600 relative overflow-hidden">
         <div className="absolute inset-0 bg-black/20" />
-        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="container mx-auto px-6 relative z-10">
           <motion.div
             className="text-center max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
@@ -798,17 +846,19 @@ function AcademyStoryPanel({ slides, label, accent }: { slides: typeof academySt
   const slide = slides[current];
 
   return (
-    <div className="relative h-[420px] md:h-[500px] lg:h-[540px] overflow-hidden rounded-2xl bg-slate-950">
-      {slides.map((s, i) => (
-        <img
-          key={s.image}
-          src={s.image}
-          alt={s.heading}
-          loading={i === 0 ? "eager" : "lazy"}
-          className="absolute inset-0 w-full h-full object-cover brightness-110 contrast-110 transition-opacity duration-[900ms] ease-in-out"
-          style={{ opacity: i === current ? 1 : 0 }}
+    <div className="relative h-[420px] md:h-[500px] lg:h-[540px] overflow-hidden rounded-2xl">
+      <AnimatePresence mode="sync">
+        <motion.img
+          key={current}
+          src={slide.image}
+          alt={slide.heading}
+          className="absolute inset-0 w-full h-full object-cover brightness-110 contrast-110"
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
         />
-      ))}
+      </AnimatePresence>
       <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-black/10" />
 
       <div className="absolute top-6 left-6 z-10">
@@ -948,8 +998,8 @@ function QuoteSlideshowSection() {
   const quote = leaderQuotes[current];
 
   return (
-    <section className="py-16 sm:py-20 md:py-24 bg-slate-900/60">
-      <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
+    <section className="py-24 bg-slate-900/60">
+      <div className="container mx-auto px-6 max-w-5xl">
         <motion.div
           className="text-center mb-12"
           initial={{ opacity: 0, y: 24 }}
