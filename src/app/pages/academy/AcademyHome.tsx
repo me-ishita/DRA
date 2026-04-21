@@ -110,7 +110,7 @@ const academyImpactSlides = [
   {
     image: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGludmVzdG1lbnR8ZW58MHx8MHx8fDA%3D",
     heading: "Scholarship & Support",
-    body: "We provide opportunities through scholarships and inclusive programs, ensuring that motivated learners can access high-quality digital risk education regardless of their background."
+    body: "We provide opportunities through scholarships and inclusive programmes, ensuring that motivated learners can access high-quality digital risk education regardless of their background."
   },
   {
     image: "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGludmVzdG1lbnR8ZW58MHx8MHx8fDA%3D",
@@ -327,7 +327,7 @@ export default function InvestmentBankingCard() {
 
           {/* CTA */}
           <Link
-            to="/academy/programs/investment-banking"
+            to="/programmes/investment-banking"
             className="px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl font-semibold text-lg hover:shadow-2xl hover:shadow-orange-500/40 transition-all duration-300"
           >
             Apply Now →
@@ -515,7 +515,7 @@ export function AcademyHome() {
                       initial={{ opacity: 0, y: 24 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.05 }} >
-                      <Link to="/academy/programs"
+                      <Link to="/programmes"
                         className="w-auto group px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg font-semibold hover:shadow-2xl hover:shadow-orange-500/50 transition-all duration-300 flex items-center justify-center space-x-2" >
                         <span>Browse Programmes</span>
                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -585,7 +585,7 @@ export function AcademyHome() {
               icon={<Users className="w-10 h-10" />}
               title="For Students"
               description="Launch your digital risk career with industry-ready skills"
-              link="/academy/programs"
+              link="/programmes"
               color="orange"
               image="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=55&w=720&auto=format&fit=crop"
             />
@@ -593,7 +593,7 @@ export function AcademyHome() {
               icon={<Briefcase className="w-10 h-10" />}
               title="For Early Career Professionals"
               description="Advance your career with specialized risk expertise"
-              link="/academy/programs"
+              link="/programmes"
               color="blue"
               image="https://images.unsplash.com/photo-1552664730-d307ca884978?q=55&w=720&auto=format&fit=crop"
             />
@@ -601,14 +601,14 @@ export function AcademyHome() {
               icon={<Building2 className="w-10 h-10" />}
               title="For Experienced Professionals"
               description="Build team capability through corporate training"
-              link="/academy/programs"
+              link="/programmes"
               color="orange"
               image="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=55&w=720&auto=format&fit=crop"
             />
             <AudienceCard
               icon={<School className="w-10 h-10" />}
               title="For Organisations"
-              description="Partner with us to enhance academic programs"
+              description="Partner with us to enhance academic programmes"
               link="/contact"
               color="blue"
               image="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?q=55&w=720&auto=format&fit=crop"
@@ -732,7 +732,7 @@ export function AcademyHome() {
               title="Security Awareness & Human Risk"
               level="All Levels"
               duration="4 weeks"
-              modules={["Human factors", "Awareness programs", "Behavior change", "Culture building"]}
+              modules={["Human factors", "Awareness programmes", "Behavior change", "Culture building"]}
             />
             <TrackCard
               title="Digital Risk for Business Leaders"
@@ -749,10 +749,10 @@ export function AcademyHome() {
             viewport={{ once: true }}
           >
             <Link
-              to="/academy/programs"
+              to="/programmes"
               className="inline-flex items-center space-x-2 text-orange-500 hover:text-orange-400 font-semibold group text-lg"
             >
-              <span>View All Programs</span>
+              <span>View All Programmes</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>
@@ -811,20 +811,20 @@ export function AcademyHome() {
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Start Your Learning Journey?</h2>
             <p className="text-xl mb-8 text-white/90">
-              Explore programs, get personalized guidance, or connect with our academic team.
+              Explore programmes, get personalised guidance, or connect with our academic team.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                to="/academy/programs"
+                to="/programmes"
                 className="px-8 py-4 bg-white text-orange-600 rounded-lg font-semibold hover:bg-slate-100 transition-all duration-300"
               >
-                Browse All Programs
+                Browse All Programmes
               </Link>
               <Link
                 to="/contact"
                 className="px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white text-white rounded-lg font-semibold hover:bg-white/20 transition-all duration-300"
               >
-                Talk to an Advisor
+                Talk to an Adviser
               </Link>
             </div>
           </motion.div>
@@ -973,10 +973,10 @@ function TrackCard({ title, level, duration, modules }: any) {
         ))}
       </ul>
       <Link
-        to="/academy/programs"
+        to="/programmes"
         className="text-orange-500 font-semibold inline-flex items-center space-x-1 group"
       >
-        <span>View Program</span>
+        <span>View Programme</span>
         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
       </Link>
     </motion.div>

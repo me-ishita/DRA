@@ -120,7 +120,7 @@ export function Contact() {
                       className={inputBase}
                     >
                       <option value="advisory">Advisory Services</option>
-                      <option value="academy">Academy Programs</option>
+                      <option value="academy">Academy Programmes</option>
                       <option value="partnership">Partnership Opportunities</option>
                       <option value="speaking">Speaking Engagements</option>
                       <option value="other">Other</option>

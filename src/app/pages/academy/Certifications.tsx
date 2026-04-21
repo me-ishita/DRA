@@ -94,9 +94,9 @@ export function Certifications() {
       <section className="py-12 sm:py-16 bg-slate-900/50">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">Certification Readiness Programs</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">Certification Readiness Programmes</h2>
             <p className="text-slate-300 mb-8 sm:mb-12 text-base sm:text-lg">
-              Prepare for industry certifications with our specialized readiness programs
+              Prepare for industry certifications with our specialized readiness programmes
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
               {["CISSP Prep", "CISM Prep", "CRISC Prep"].map((cert, index) => (
@@ -105,7 +105,7 @@ export function Certifications() {
                   <h3 className="text-lg sm:text-xl font-bold mb-2">{cert}</h3>
                   <p className="text-slate-400 text-sm mb-4">Comprehensive exam preparation and practice</p>
                   <Link
-                    to="/programs"
+                    to="/programmes"
                     className="text-orange-500 font-semibold inline-flex items-center gap-1 min-h-[44px]"
                   >
                     <span>Learn More</span>
