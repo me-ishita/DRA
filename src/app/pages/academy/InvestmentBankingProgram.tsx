@@ -9,7 +9,7 @@ import {
     CheckCircle
 } from "lucide-react";
 
-export default function InvestmentBankingProgram() {
+export default function InvestmentBankingProgramme() {
     return (
         <div className="pt-20">
 

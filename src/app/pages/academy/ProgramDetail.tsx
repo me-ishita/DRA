@@ -12,7 +12,7 @@ import {
   BookOpen,
 } from "lucide-react";
 
-export function ProgramDetail() {
+export function ProgrammeDetail() {
   const { id } = useParams();
 
   return (
@@ -93,7 +93,7 @@ export function ProgramDetail() {
               {[
                 "GRC frameworks and methodologies",
                 "Risk assessment and management",
-                "Compliance program development",
+                "Compliance programme development",
                 "Policy and procedure design",
                 "Audit readiness and execution",
                 "Control implementation",
@@ -124,7 +124,7 @@ export function ProgramDetail() {
                 GRC professionals are in high demand across all industries. Organizations need skilled practitioners who can navigate complex regulatory environments, build effective governance frameworks, and manage risk strategically.
               </p>
               <p className="text-slate-300 text-base sm:text-lg">
-                This program provides the practical, hands-on experience needed to succeed in GRC roles, with real-world projects that build a portfolio you can showcase to employers.
+                This programme provides the practical, hands-on experience needed to succeed in GRC roles, with real-world projects that build a portfolio you can showcase to employers.
               </p>
             </div>
           </div>
@@ -166,7 +166,7 @@ export function ProgramDetail() {
       <section className="py-12 sm:py-16 bg-gradient-to-b from-slate-950 to-slate-900">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">Program Outcomes</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">Programme Outcomes</h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
               <OutcomeCard
                 icon={<Award className="w-10 h-10" />}
@@ -196,7 +196,7 @@ export function ProgramDetail() {
             <div className="space-y-3 sm:space-y-4">
               <FAQItem
                 question="What are the prerequisites?"
-                answer="No specific technical background required. A bachelor's degree or equivalent work experience is recommended. Eagerness to learn and commitment to the program are essential."
+                answer="No specific technical background required. A bachelor's degree or equivalent work experience is recommended. Eagerness to learn and commitment to the programme are essential."
               />
               <FAQItem
                 question="What is the time commitment?"
@@ -204,7 +204,7 @@ export function ProgramDetail() {
               />
               <FAQItem
                 question="Who should join this program?"
-                answer="This program is ideal for career changers, recent graduates, and professionals looking to transition into GRC roles. It's also suitable for those already in adjacent roles who want to formalize their GRC expertise."
+                answer="This programme is ideal for career changers, recent graduates, and professionals looking to transition into GRC roles. It's also suitable for those already in adjacent roles who want to formalize their GRC expertise."
               />
             </div>
           </div>
@@ -230,7 +230,7 @@ export function ProgramDetail() {
                 to="/contact"
                 className="min-h-[52px] px-6 sm:px-8 py-3.5 sm:py-4 bg-white/10 backdrop-blur-sm border-2 border-white text-white rounded-lg font-semibold hover:bg-white/20 active:scale-[0.99] transition-all inline-flex items-center justify-center"
               >
-                Talk to an Advisor
+                Talk to an Adviser
               </Link>
             </div>
           </div>

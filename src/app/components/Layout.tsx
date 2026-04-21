@@ -52,7 +52,7 @@ export function Layout() {
                 </button>
                 <div className="absolute top-full left-0 mt-2 w-52 bg-slate-900 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-slate-800 overflow-hidden">
                   <Link to="/" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Academy Home</Link>
-                  <Link to="/programs" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">All Programmes</Link>
+                  <Link to="/programmes" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">All Programmes</Link>
                   <Link to="/certifications" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Certifications</Link>
                   <Link to="/resources" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Resources</Link>
                 </div>
@@ -96,10 +96,10 @@ export function Layout() {
                   Academy Home
                 </Link>
                 <Link
-                  to="/programs"
+                  to="/programmes"
                   className="block py-2 pl-4 text-sm text-slate-400 hover:text-orange-500"
                 >
-                  Programs
+                  Programmes
                 </Link>
                 <Link
                   to="/certifications"
@@ -178,8 +178,8 @@ function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/programs" className="text-slate-400 hover:text-white transition-colors">
-                  Programs
+                <Link to="/programmes" className="text-slate-400 hover:text-white transition-colors">
+                  Programmes
                 </Link>
               </li>
               <li>

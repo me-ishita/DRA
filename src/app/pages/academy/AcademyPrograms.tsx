@@ -7,7 +7,7 @@ import {
   Briefcase,
 } from "lucide-react";
 
-export function AcademyPrograms() {
+export function AcademyProgrammes() {
   return (
     <div className="pt-20">
       {/* Hero */}
@@ -20,7 +20,7 @@ export function AcademyPrograms() {
               Elite Programme
             </h2>
             <p className="text-slate-800 text-base sm:text-lg mt-2">
-              Newly launched flagship program from Digital Risk Academy
+              Newly launched flagship programme from Digital Risk Academy
             </p>
           </div>
 
@@ -36,7 +36,7 @@ export function AcademyPrograms() {
               <div className="absolute inset-0">
                 <img
                   src="https://images.unsplash.com/photo-1630464373688-fb6a37ce89ed?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fGludmVzdG1lbnQlMjBiYW5raW5nfGVufDB8fDB8fHww"
-                  alt="Investment Banking Program"
+                  alt="Investment Banking Programme"
                   className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/40 to-black/30" />
@@ -90,7 +90,7 @@ export function AcademyPrograms() {
 
                 {/* CTA */}
                 <Link
-                  to="/programs/investment-banking"
+                  to="/programmes/investment-banking"
                   className="inline-flex items-center min-h-[48px] px-5 py-3 mt-5 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg font-semibold hover:shadow-lg hover:shadow-orange-500/40 active:scale-[0.99] transition"
                 >
                   View Details →
@@ -128,7 +128,7 @@ export function AcademyPrograms() {
                     New Professionals, Risk Managers, Board Members
                   </p>
                   <Link
-                    to="/programs/digital-risk-fundamentals"
+                    to="/programmes/digital-risk-fundamentals"
                     className="block w-full py-4 bg-[#cd5c30] hover:bg-[#b04d27] text-white rounded-full font-semibold transition-colors text-center text-lg shadow-lg shadow-[#cd5c30]/20 active:scale-[0.98]"
                   >
                     View Course
@@ -157,7 +157,7 @@ export function AcademyPrograms() {
                     High-potential Graduates, Career Switchers
                   </p>
                   <Link
-                    to="/programs/cyber-resilience-practitioner"
+                    to="/programmes/cyber-resilience-practitioner"
                     className="block w-full py-4 bg-[#cd5c30] hover:bg-[#b04d27] text-white rounded-full font-semibold transition-colors text-center text-lg shadow-lg shadow-[#cd5c30]/20 active:scale-[0.98]"
                   >
                     View Course
@@ -186,7 +186,7 @@ export function AcademyPrograms() {
                     C-Suite, Board Members, Risk Leaders
                   </p>
                   <Link
-                    to="/programs/ai-risk-governance"
+                    to="/programmes/ai-risk-governance"
                     className="block w-full py-4 bg-[#cd5c30] hover:bg-[#b04d27] text-white rounded-full font-semibold transition-colors text-center text-lg shadow-lg shadow-[#cd5c30]/20 active:scale-[0.98]"
                   >
                     View Course
@@ -214,7 +214,7 @@ export function AcademyPrograms() {
                     Mid-to-Senior Professionals, Finance Leaders
                   </p>
                   <Link
-                    to="/programs/executive-leadership"
+                    to="/programmes/executive-leadership"
                     className="block w-full py-4 bg-[#cd5c30] hover:bg-[#b04d27] text-white rounded-full font-semibold transition-colors text-center text-lg shadow-lg shadow-[#cd5c30]/20 active:scale-[0.98]"
                   >
                     View Course
@@ -302,7 +302,7 @@ export function AcademyPrograms() {
                     Government Professionals, CNI Operators
                   </p>
                   <Link
-                    to="/programs/cniscc"
+                    to="/programmes/cniscc"
                     className="block w-full py-4 bg-[#cd5c30] hover:bg-[#b04d27] text-white rounded-full font-semibold transition-colors text-center text-lg shadow-lg shadow-[#cd5c30]/20 active:scale-[0.98]"
                   >
                     View Course
@@ -326,13 +326,13 @@ export function AcademyPrograms() {
           >
             <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Need Help Choosing?</h2>
             <p className="text-slate-300 text-sm sm:text-base mb-5 sm:mb-6">
-              Our advisors can help you select the right program for your goals and experience level.
+              Our advisers can help you select the right programme for your goals and experience level.
             </p>
             <Link
               to="/contact"
               className="inline-flex items-center gap-2 min-h-[52px] px-6 sm:px-8 py-3.5 sm:py-4 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600 active:scale-[0.99] transition-all"
             >
-              <span>Talk to an Advisor</span>
+              <span>Talk to an Adviser</span>
               <ArrowRight className="w-5 h-5" />
             </Link>
           </motion.div>

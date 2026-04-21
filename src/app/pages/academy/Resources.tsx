@@ -65,7 +65,7 @@ export function Resources() {
               icon={<BookOpen className="w-10 h-10" />}
               type="eBook"
               title="Privacy & Trust Handbook"
-              description="Practical guide to building digital trust and privacy programs"
+              description="Practical guide to building digital trust and privacy programmes"
             />
             <ResourceCard
               icon={<FileText className="w-10 h-10" />}
@@ -116,13 +116,13 @@ export function Resources() {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6">Ready to Learn More?</h2>
             <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-white/90">
-              Explore our full catalog of programs and resources.
+              Explore our full catalog of programmes and resources.
             </p>
             <Link
-              to="/programs"
+              to="/programmes"
               className="inline-flex items-center gap-2 min-h-[52px] px-6 sm:px-8 py-3.5 sm:py-4 bg-white text-orange-600 rounded-lg font-semibold hover:bg-slate-100 active:scale-[0.99] transition-all"
             >
-              <span>Browse Programs</span>
+              <span>Browse Programmes</span>
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
